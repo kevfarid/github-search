@@ -6,9 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { GithubService } from './services/github.service';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent],
+  declarations: [AppComponent, TableComponent, LoadingComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [GithubService],
   bootstrap: [AppComponent],

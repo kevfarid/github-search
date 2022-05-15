@@ -10,6 +10,11 @@ import { GithubService } from './services/github.service';
 })
 export class AppComponent implements OnInit {
   title: string = 'githubSearch';
+
+  infoApi = {
+    loading: false,
+  };
+
   form = {
     word: '',
   };
@@ -39,14 +44,19 @@ export class AppComponent implements OnInit {
 
     if (this.form.word.length < 3) return;
 
+    this.infoApi.loading = true;
+
     this.githubService.getUsersByWord(this.form.word).subscribe(
       (users) => {
         this.dataTable.rows = users as unknown as IRow[];
       },
-      (error) => {
+      (_) => {
         this.githubService.getAllUsers(this.form.word).subscribe((users) => {
           this.dataTable.rows = users as unknown as IRow[];
         });
+      },
+      () => {
+        this.infoApi.loading = false;
       }
     );
   }
