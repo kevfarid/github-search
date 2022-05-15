@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let column of data.cols" id="{{ column.id }}">
+        {{ column.label }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data.rows">
+      <td *ngFor="let column of data.cols" id="{{ column.id }}">
+        {{ column.type === "image" ? null : row[column.key] }}
+        <img
+          class="avatar"
+          *ngIf="column.type === 'image'"
+          src="{{ row[column.key] }}"
+          alt="{{ row[column.key] }}"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

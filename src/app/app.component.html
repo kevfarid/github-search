@@ -1,9 +1,27 @@
 <main class="app">
   <section class="title">
+    <img src="/assets/github-icon.png" alt="logo" />
     <h1>GitHub Search</h1>
   </section>
 
   <section class="wrapper">
-    <h2>Hi</h2>
+    <form class="search">
+      <img
+        class="search__icon"
+        src="/assets/search.svg"
+        alt="Search"
+        (click)="search()"
+      />
+      <input
+        type="text"
+        placeholder="Search"
+        class="search__input"
+        name="search"
+        id="search"
+        [(ngModel)]="form.word"
+        (ngModelChange)="search()"
+      />
+    </form>
+    <app-table [data]="dataTable"></app-table>
   </section>
 </main>

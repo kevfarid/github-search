@@ -34,6 +34,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #383e46 var(--primary2);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--primary2);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #383e46;
+    border-radius: 8px;
+    border: 3px solid var(--primary1);
+}
 }
 
 h1 {
