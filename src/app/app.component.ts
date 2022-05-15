@@ -46,18 +46,18 @@ export class AppComponent implements OnInit {
 
     this.infoApi.loading = true;
 
-    this.githubService.getUsersByWord(this.form.word).subscribe(
-      (users) => {
+    this.githubService.getUsersByWord(this.form.word).subscribe({
+      next: (users) => {
         this.dataTable.rows = users as unknown as IRow[];
       },
-      (_) => {
+      error: (_) => {
         this.githubService.getAllUsers(this.form.word).subscribe((users) => {
           this.dataTable.rows = users as unknown as IRow[];
         });
       },
-      () => {
+      complete: () => {
         this.infoApi.loading = false;
-      }
-    );
+      },
+    });
   }
 }
