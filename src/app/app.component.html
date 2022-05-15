@@ -5,23 +5,7 @@
   </section>
 
   <section class="wrapper">
-    <form class="search">
-      <img
-        class="search__icon"
-        src="/assets/search.svg"
-        alt="Search"
-        (click)="search()"
-      />
-      <input
-        type="text"
-        placeholder="Search"
-        class="search__input"
-        name="search"
-        id="search"
-        [(ngModel)]="form.word"
-        (ngModelChange)="search()"
-      />
-    </form>
+    <app-search (search)="search($event)"></app-search>
     <app-table [data]="dataTable"></app-table>
     <app-loading [isLoading]="infoApi.loading"></app-loading>
   </section>

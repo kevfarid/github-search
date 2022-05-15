@@ -1,0 +1,17 @@
+<form class="search">
+  <img
+    class="search__icon"
+    src="/assets/search.svg"
+    alt="Search"
+    (click)="onChangeAndClick()"
+  />
+  <input
+    type="text"
+    placeholder="Search"
+    class="search__input"
+    name="search"
+    id="search"
+    [(ngModel)]="word"
+    (ngModelChange)="onChangeAndClick()"
+  />
+</form>

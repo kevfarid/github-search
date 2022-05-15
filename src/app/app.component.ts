@@ -15,10 +15,6 @@ export class AppComponent implements OnInit {
     loading: false,
   };
 
-  form = {
-    word: '',
-  };
-
   dataTable: ITable = {
     cols: [
       { id: 1, label: 'Avatar', type: 'image', key: 'avatar_url' },
@@ -36,23 +32,24 @@ export class AppComponent implements OnInit {
     this.githubService.getAllUsers().subscribe((users) => users);
   }
 
-  search() {
-    if (this.form.word.length < 1) {
+  search(word: string) {
+    if (word.length < 1) {
       this.dataTable.rows = [];
       return;
     }
 
-    if (this.form.word.length < 3) return;
+    if (word.length < 3) return;
 
     this.infoApi.loading = true;
 
-    this.githubService.getUsersByWord(this.form.word).subscribe({
+    this.githubService.getUsersByWord(word).subscribe({
       next: (users) => {
         this.dataTable.rows = users as unknown as IRow[];
       },
       error: (_) => {
-        this.githubService.getAllUsers(this.form.word).subscribe((users) => {
+        this.githubService.getAllUsers(word).subscribe((users) => {
           this.dataTable.rows = users as unknown as IRow[];
+          this.infoApi.loading = false;
         });
       },
       complete: () => {
