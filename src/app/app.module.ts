@@ -8,9 +8,10 @@ import { TableComponent } from './components/table/table.component';
 import { GithubService } from './services/github.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SearchComponent } from './components/search/search.component';
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent, LoadingComponent, SearchComponent],
+  declarations: [AppComponent, TableComponent, LoadingComponent, SearchComponent, TitleComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [GithubService],
   bootstrap: [AppComponent],

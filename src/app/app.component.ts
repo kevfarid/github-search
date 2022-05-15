@@ -9,7 +9,7 @@ import { GithubService } from './services/github.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title: string = 'githubSearch';
+  title: string = 'Github Search';
 
   infoApi = {
     loading: false,

@@ -1,8 +1,5 @@
 <main class="app">
-  <section class="title">
-    <img src="/assets/github-icon.png" alt="logo" />
-    <h1>GitHub Search</h1>
-  </section>
+  <app-title [title]="title"></app-title>
 
   <section class="wrapper">
     <app-search (search)="search($event)"></app-search>
